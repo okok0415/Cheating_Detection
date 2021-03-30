@@ -64,7 +64,7 @@
         node -v
         npm -v
         npx -v
-        git --version ->
+        git --version //깔려있는 지 확인하는 용도 까는건 직접 사이트 들어가서 깔아야함
         
         cd cheating_detection_react
         

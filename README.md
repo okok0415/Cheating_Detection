@@ -1,9 +1,10 @@
 시작하기 앞서...
 
     python 홈페이지에 들어가서 3.7.3 Download
-    pip install pipenv 
+    cmd에 들어가서 pip install pipenv 
+    Visual Studio Code Download ** -> python만을 사용하지 않기 때문에 불가피하게 Visual Studio Code가 있어야 한다.
 
-이 두개가 해결이 된 상태로 가정하고 시작합니다.
+이 세개가 해결이 된 상태로 가정하고 시작합니다.
 0. clone Cheating_Detection
     본인 Documents 혹은 본인이 원하는 자리에 CMD나 PowerShell을 킨다.
         

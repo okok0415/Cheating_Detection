@@ -6,7 +6,7 @@ class PostsForm extends Component {
         this.state={
             title:'',
             content:'',
-            username:'lim'
+            user: '55',
         };
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -22,12 +22,14 @@ class PostsForm extends Component {
         const post = {
             title: this.state.title,
             content: this.state.content,
-            username: this.state.username
+            user: this.state.user
         }
+        console.log(JSON.stringify(post))
         fetch("http://127.0.0.1:8000/api/Boards", {
             method : "POST",
             headers:{
-                'content-type': 'application/json'
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
             },
             body:JSON.stringify(post)
         })

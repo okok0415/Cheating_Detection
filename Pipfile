@@ -9,6 +9,7 @@ django-rest-framework = "*"
 django-cors-headers = "*"
 pillow = "*"
 flake8 = "*"
+django-seed = "*"
 
 [dev-packages]
 flake8 = "*"

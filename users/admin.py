@@ -9,12 +9,24 @@ class CustomUserAdmim(admin.ModelAdmin):
     """ Custom User Admin """
 
     fieldsets = UserAdmin.fieldsets + (
-        ( 
+        (
             "Custom profile",
             {
-                'fields': (
+                "fields": (
                     "supervisor",
                     "cellphoneNum",
-            ),
-        }),
+                ),
+            },
+        ),
+    )
+
+    list_filter = UserAdmin.list_filter + ("supervisor",)
+
+    list_display = (
+        "username",
+        "first_name",
+        "last_name",
+        "email",
+        "supervisor",
+        "cellphoneNum",
     )

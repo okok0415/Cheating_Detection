@@ -1,4 +1,5 @@
 import random
+from faker import Faker
 from django.core.management.base import BaseCommand
 from django_seed import Seed
 from boards import models as board_models
@@ -16,14 +17,15 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         number = options.get("number")
+        fake = Faker(["ko_KR"])
         seeder = Seed.seeder()
         all_users = user_models.User.objects.all()
         seeder.add_entity(
             board_models.Board,
             number,
             {
-                "title": lambda x: seeder.faker.company(),
-                "content": lambda x: seeder.faker.address(),
+                "title": lambda x: fake.company(),
+                "content": lambda x: fake.address(),
                 "user": lambda x: random.choice(all_users),
             },
         )

@@ -1,4 +1,3 @@
-from faker import Faker
 from django.core.management.base import BaseCommand
 from django_seed import Seed
 from users.models import User
@@ -18,7 +17,6 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         number = options.get("number")
-        fake = Faker(["ko_KR"])
         seeder = Seed.seeder()
         seeder.add_entity(
             User,
@@ -26,7 +24,6 @@ class Command(BaseCommand):
             {
                 "is_staff": False,
                 "is_superuser": False,
-                "cellphoneNum": lambda x: fake.phone_number(),
             },
         )
         seeder.execute()

@@ -2,6 +2,8 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from . import models
 
+admin.site.register(models.Book)
+
 
 @admin.register(models.User)
 class CustomUserAdmim(admin.ModelAdmin):
@@ -15,6 +17,7 @@ class CustomUserAdmim(admin.ModelAdmin):
                 "fields": (
                     "supervisor",
                     "cellphoneNum",
+                    "nickname",
                 ),
             },
         ),

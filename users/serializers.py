@@ -7,7 +7,16 @@ from .models import Book
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ["id", "username", "nickname", "email", "password", "supervisor"]
+        fields = [
+            "id",
+            "username",
+            "nickname",
+            "email",
+            "password",
+            "supervisor",
+            "student_number",
+            "birth",
+        ]
         extra_kwargs = {"password": {"write_only": True, "required": True}}
 
     def create(self, validated_data):

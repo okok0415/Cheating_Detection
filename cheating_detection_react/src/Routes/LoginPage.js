@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import Login from "../Components/login.js";
+import Signup from "../Components/Signup.js";
+import Login from "../Components/Login.js";
 import Books from "../Components/books.js";
 
 function Loginpage() {
@@ -11,6 +12,7 @@ function Loginpage() {
     }
     return (
         <div>
+            <Signup userLogin={userLogin} />
             <Login userLogin={userLogin} />
             <Books token={token} />
         </div>

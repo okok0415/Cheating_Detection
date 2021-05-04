@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from datetime import date
 
 
 class Book(models.Model):
@@ -10,4 +11,5 @@ class User(AbstractUser):
 
     nickname = models.CharField(max_length=10, default="lim")
     supervisor = models.BooleanField(default=False)
-    cellphoneNum = models.CharField(max_length=13, default="010-0000-0000")
+    birth = models.DateField(default=date.today)
+    student_number = models.CharField(max_length=7, default="C000000")

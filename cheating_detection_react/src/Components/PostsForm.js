@@ -1,23 +1,23 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 class PostsForm extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state={
-            title:'',
-            content:'',
-            user: '55',
+        this.state = {
+            title: '',
+            content: '',
+            user: '103',
         };
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
     }
 
-    onChange(e){
+    onChange(e) {
         this.setState({
-            [e.target.name]:e.target.value
+            [e.target.name]: e.target.value
         });
     }
-    onSubmit(e){
+    onSubmit(e) {
         e.preventDefault();
         const post = {
             title: this.state.title,
@@ -26,30 +26,30 @@ class PostsForm extends Component {
         }
         console.log(JSON.stringify(post))
         fetch("http://127.0.0.1:8000/api/Boards", {
-            method : "POST",
-            headers:{
+            method: "POST",
+            headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
             },
-            body:JSON.stringify(post)
+            body: JSON.stringify(post)
         })
-        .then(res=>res.json())
+            .then(res => res.json())
     }
 
-    render(){
-        const {title, content} = this.state;
-        const {onChange, onSubmit} = this;
+    render() {
+        const { title, content } = this.state;
+        const { onChange, onSubmit } = this;
         return (
             <div>
                 <h4>New Post</h4>
                 <form onSubmit={onSubmit}>
                     <div>
                         <label>title:</label>
-                        <input type="text" name="title" value = {title} onChange = {onChange}/>         
+                        <input type="text" name="title" value={title} onChange={onChange} />
                     </div>
                     <div>
                         <label>content:</label>
-                        <input type="text" name="content" value= {content} onChange = {onChange}/>
+                        <input type="text" name="content" value={content} onChange={onChange} />
                     </div>
                     <div><button type="submit">전송</button></div>
                 </form>

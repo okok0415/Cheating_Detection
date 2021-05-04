@@ -6,7 +6,7 @@ admin.site.register(models.Book)
 
 
 @admin.register(models.User)
-class CustomUserAdmim(admin.ModelAdmin):
+class CustomUserAdmin(admin.ModelAdmin):
 
     """ Custom User Admin """
 
@@ -14,11 +14,7 @@ class CustomUserAdmim(admin.ModelAdmin):
         (
             "Custom profile",
             {
-                "fields": (
-                    "supervisor",
-                    "cellphoneNum",
-                    "nickname",
-                ),
+                "fields": ("supervisor", "nickname", "student_number", "birth"),
             },
         ),
     )
@@ -27,9 +23,9 @@ class CustomUserAdmim(admin.ModelAdmin):
 
     list_display = (
         "username",
-        "first_name",
-        "last_name",
+        "nickname",
         "email",
+        "student_number",
+        "birth",
         "supervisor",
-        "cellphoneNum",
     )
